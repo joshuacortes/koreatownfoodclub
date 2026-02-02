@@ -1,1 +1,500 @@
 
+<!-- STICKY HEADER -->
+<header class="kt-header">
+  <div class="kt-header-inner">
+    <a href="/" class="kt-logo">
+      Koreatown<span>FoodClub</span>
+    </a>
+
+    <nav class="kt-nav" id="ktNav">
+      <a href="/search/korean-food">Korean Food</a>
+      <a href="/search/tacos-mexican">Tacos</a>
+      <a href="/search/late-night-food">Late Night</a>
+      <a href="/search/bakeries-donuts-desserts">Desserts</a>
+      <a href="/search">Cheap Eats</a>
+    </nav>
+
+    <button class="kt-menu-btn" id="menuToggle" aria-label="Toggle Menu">
+      ☰
+    </button>
+  </div>
+</header>
+
+<style>
+/* HEADER */
+.kt-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(14, 14, 16, 0.85);
+  border-bottom: 1px solid #23232a;
+}
+
+.kt-header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kt-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #f5f5f7;
+  letter-spacing: -0.02em;
+}
+
+.kt-logo span {
+  color: #ff6a00;
+  font-weight: 800;
+}
+
+.kt-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.kt-nav a {
+  text-decoration: none;
+  color: #d4d4d8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.kt-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff6a00;
+  transition: width 0.25s ease;
+}
+
+.kt-nav a:hover::after {
+  width: 100%;
+}
+
+.kt-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #f5f5f7;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .kt-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0e0e10;
+    border-bottom: 1px solid #23232a;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+
+  .kt-nav a {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #23232a;
+    font-size: 1rem;
+  }
+
+  .kt-menu-btn {
+    display: block;
+  }
+
+  .kt-nav.open {
+    display: flex;
+  }
+}
+</style>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('ktNav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+
+
+<!-- HOMEPAGE DIRECTORY SECTIONS -->
+<section class="kt-spotlight">
+  <div class="container">
+    <h2>Koreatown Food Picks</h2>
+    <p class="subtitle">Curated ways to eat your way through K-Town.</p>
+
+    <div class="spotlight-grid">
+      <a href="/search/late-night-food" class="spotlight-card">
+        <span class="emoji">⏰</span>
+        <h3>Late Night</h3>
+        <p>Open after 10pm & 24-hour eats — huge in Koreatown.</p>
+      </a>
+
+      <a href="/search" class="spotlight-card">
+        <span class="emoji">💸</span>
+        <h3>Cheap Eats</h3>
+        <p>Under $10–$15 gems locals swear by.</p>
+      </a>
+
+      <a href="/search/korean-food" class="spotlight-card">
+        <span class="emoji">🍽️</span>
+        <h3>Group-Friendly</h3>
+        <p>Perfect for birthdays, KBBQ & big tables.</p>
+      </a>
+
+      <a href="/search/bakeries-donuts-desserts" class="spotlight-card">
+        <span class="emoji">🍳</span>
+        <h3>Breakfast & Brunch</h3>
+        <p>Underrated morning spots in K-Town.</p>
+      </a>
+
+      <a href="/search/korean-food" class="spotlight-card">
+        <span class="emoji">🏆</span>
+        <h3>K-Town Classics</h3>
+        <p>Old-school, legendary institutions.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="kt-categories">
+  <div class="container">
+    <h2>Browse by Food Category</h2>
+
+    <div class="category-grid">
+      <a href="/search/korean-food" class="category-card">
+        <h3>🍜 Korean Food</h3>
+        <ul>
+          <li>BBQ (KBBQ)</li>
+          <li>Soondubu & Stews</li>
+          <li>Noodles</li>
+          <li>Fried Chicken</li>
+          <li>Street Food / Bunsik</li>
+          <li>Late-Night Korean</li>
+        </ul>
+      </a>
+
+      <a href="/search/tacos-mexican" class="category-card">
+        <h3>🌮 Tacos & Mexican</h3>
+        <ul>
+          <li>Tacos</li>
+          <li>Burritos</li>
+          <li>Birria</li>
+          <li>Taco Trucks</li>
+          <li>Mariscos</li>
+        </ul>
+      </a>
+
+      <a href="/search/bakeries-donuts-desserts" class="category-card">
+        <h3>🍩 Bakeries & Desserts</h3>
+        <ul>
+          <li>Donuts</li>
+          <li>Korean Bakeries</li>
+          <li>Desserts & Sweets</li>
+          <li>Ice Cream / Bingsu</li>
+          <li>Cafés & Coffee</li>
+        </ul>
+      </a>
+
+      <a href="/search" class="category-card">
+        <h3>🍜 Asian (Non-Korean)</h3>
+        <ul>
+          <li>Japanese</li>
+          <li>Chinese</li>
+          <li>Thai</li>
+          <li>Vietnamese</li>
+          <li>Filipino</li>
+        </ul>
+      </a>
+
+      <a href="/search" class="category-card">
+        <h3>🍔 American & Comfort</h3>
+        <ul>
+          <li>Burgers</li>
+          <li>Sandwiches</li>
+          <li>Wings</li>
+          <li>Breakfast</li>
+        </ul>
+      </a>
+
+      <a href="/search/late-night-food" class="category-card">
+        <h3>🍸 Bars & Night Eats</h3>
+        <ul>
+          <li>Bars & Lounges</li>
+          <li>Late-Night Eats</li>
+          <li>Soju Bars</li>
+          <li>Karaoke + Food</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+:root {
+  --bg: #0e0e10;
+  --card: #16161a;
+  --border: #23232a;
+  --text: #f5f5f7;
+  --muted: #a1a1aa;
+  --accent: #ff6a00;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1.25rem;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.spotlight-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.emoji {
+  font-size: 1.8rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.category-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.category-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.category-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-card li {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+}
+</style>
+
+<script>
+  // subtle reveal on scroll
+  const cards = document.querySelectorAll('.spotlight-card, .category-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'none';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(12px)';
+    observer.observe(card);
+  });
+</script>
+
+
+<!-- FOOTER -->
+<footer class="kt-footer">
+  <div class="kt-footer-inner">
+    
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">
+        Koreatown<span>FoodClub</span>
+      </a>
+      <p class="footer-tagline">
+        Discover the best food in Koreatown — curated by locals.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="/search/korean-food">Korean Food</a>
+        <a href="/search/tacos-mexican">Tacos & Mexican</a>
+        <a href="/search/late-night-food">Late Night Eats</a>
+        <a href="/search/bakeries-donuts-desserts">Desserts</a>
+        <a href="/search">Cheap Eats</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Popular Searches</h4>
+        <a href="/search/late-night-food">Open Late in Koreatown</a>
+        <a href="/search/korean-food">Best KBBQ in K-Town</a>
+        <a href="/search/bakeries-donuts-desserts">Best Donuts in Koreatown</a>
+        <a href="/search">Affordable Food in K-Town</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Koreatown Guides</h4>
+        <a href="/search">Koreatown Food Map</a>
+        <a href="/search">Group Dining & KBBQ</a>
+        <a href="/search">Breakfast & Brunch</a>
+        <a href="/search">K-Town Classics</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="kt-footer-bottom">
+    <p>© <span id="year"></span> Koreatown Food Club. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+/* FOOTER */
+.kt-footer {
+  background: #0e0e10;
+  border-top: 1px solid #23232a;
+}
+
+.kt-footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 2.5rem;
+}
+
+.footer-logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #f5f5f7;
+}
+
+.footer-logo span {
+  color: #ff6a00;
+}
+
+.footer-tagline {
+  margin-top: 0.75rem;
+  color: #a1a1aa;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: #e4e4e7;
+}
+
+.footer-col a {
+  display: block;
+  text-decoration: none;
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #ff6a00;
+}
+
+.kt-footer-bottom {
+  border-top: 1px solid #23232a;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .kt-footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+</style>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+
